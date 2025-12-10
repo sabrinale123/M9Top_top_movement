@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkblttkepswp6"]
+
+[ext_resource type="PackedScene" uid="uid://bw7oebjpdt5r8" path="res://runner.tscn" id="1_83gue"]
+[ext_resource type="PackedScene" uid="uid://bqyt66qognb6h" path="res://simple_obstacle.tscn" id="2_617k1"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Runner" parent="." instance=ExtResource("1_83gue")]
+position = Vector2(969, 689)
+
+[node name="SimpleObstacle" parent="." instance=ExtResource("2_617k1")]
+z_index = -1
+position = Vector2(1041, 702)

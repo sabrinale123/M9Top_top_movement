@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://cf2tlt4hj8m8h" path="res://runner.gd" id="1_f7b3c"]
-[ext_resource type="Texture2D" uid="uid://c0i1ik45p7rhh" path="res://assets/runner_down.png" id="2_f7b3c"]
+[ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_f7b3c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3ldj"]
 radius = 24.083189
@@ -9,10 +9,8 @@ radius = 24.083189
 [node name="Runner" type="CharacterBody2D"]
 script = ExtResource("1_f7b3c")
 
-[node name="Skin" type="Sprite2D" parent="."]
+[node name="RunnerVisualRed" parent="." instance=ExtResource("2_f7b3c")]
 unique_name_in_owner = true
-texture = ExtResource("2_f7b3c")
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 36)

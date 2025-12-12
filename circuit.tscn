@@ -8,4 +8,16 @@
 texture = ExtResource("1_450v8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(576, 32, 288, -256, -224, -256, -576, 32, -576, 416, -800, 640, -992, 640, -1216, 416, -1216, -224, -736, -704, 480, -704, 736, -448, 992, -448, 1216, -224, 1216, 416, 992, 640, 800, 640, 576, 416)
+polygon = PackedVector2Array(736, -448, 992, -448, 1216, -224, 1216, 416, 992, 640, 800, 640, 576, 416, 576, 32, 288, -256, -224, -256, -576, 32, -576, 416, -800, 640, -992, 640, -1216, 416, -1216, -224, -736, -704, 480, -704)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-768, 896, -672, 1280, -320, 480, -320, 160, -160, 0, 160, 0, 320, 160, 320, 480, 736, 896, 608, 1280, -640, 1280)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1472, -288, 1600, -320, 1600, 512, 1568, 1280, 1152, 1280, 608, 1280, 736, 896, 1056, 896, 1472, 480)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionPolygon2D3"]
+polygon = PackedVector2Array(-704, 1024, -672, 1280, -1600, 1280, -1600, 544, -1600, -1088, -832, -1088, 0, -1088, 0, -960, -800, -960, -1472, -288, -1472, 480, -1056, 896, -768, 896)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(32, -1088, 32, -960, 544, -960, 800, -704, 1056, -704, 1472, -288, 1600, -320, 1568, -1088)

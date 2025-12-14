@@ -1,11 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://dybbswvidqsye"]
+[gd_scene load_steps=10 format=3 uid="uid://dybbswvidqsye"]
+
+[ext_resource type="Texture2D" uid="uid://tgs14f485wph" path="res://assets/kenney-particles/smoke_04.png" id="1_btvwu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_67827"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_aetp2"]
+_data = [Vector2(0.005479455, 0.67878795), 0.0, 0.0, 0, 0, Vector2(0.29275972, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.02727282), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5825l"]
+curve = SubResource("Curve_aetp2")
+
+[sub_resource type="Gradient" id="Gradient_boeb1"]
+offsets = PackedFloat32Array(0, 0.69453377)
+colors = PackedColorArray(0.8105469, 0.5729645, 0.22005081, 1, 0.9199219, 0.16709518, 0.16709518, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gj3wy"]
+gradient = SubResource("Gradient_boeb1")
+
+[sub_resource type="Curve" id="Curve_gqo14"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24371374, 0.98936874), 0.0, 0.0, 0, 0, Vector2(0.7911026, 0.030421972), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_63nh0"]
+curve = SubResource("Curve_gqo14")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cir2r"]
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_63nh0")
+color_ramp = SubResource("GradientTexture1D_gj3wy")
+alpha_curve = SubResource("CurveTexture_5825l")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(1, 1)
+material = SubResource("CanvasItemMaterial_67827")
+position = Vector2(2, 1)
+amount = 30
+texture = ExtResource("1_btvwu")
+lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_cir2r")

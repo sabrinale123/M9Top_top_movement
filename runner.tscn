@@ -1,9 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw7oebjpdt5r8"]
+[gd_scene load_steps=14 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://cf2tlt4hj8m8h" path="res://runner.gd" id="1_f7b3c"]
 [ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="2_5pwe8"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_f7b3c"]
+[ext_resource type="Texture2D" uid="uid://bkq3gfbp5fwqx" path="res://assets/circle_64x64.png" id="3_44hxy"]
 [ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="4_hfbw2"]
+
+[sub_resource type="Curve" id="Curve_vk5uk"]
+_data = [Vector2(0.7526427, 0.99301827), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6v1ry"]
+curve = SubResource("Curve_vk5uk")
+
+[sub_resource type="Curve" id="Curve_iwbjd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_paush"]
+curve = SubResource("Curve_iwbjd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vhleq"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -10, 0)
+scale_min = 0.5
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_paush")
+alpha_curve = SubResource("CurveTexture_6v1ry")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3ldj"]
 radius = 30.066593
@@ -25,6 +48,11 @@ modulate = Color(0, 0, 0, 0.15686275)
 position = Vector2(-0.9999981, -6.5)
 scale = Vector2(0.8958333, 0.734375)
 texture = ExtResource("2_5pwe8")
+
+[node name="Dust" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("3_44hxy")
+process_material = SubResource("ParticleProcessMaterial_vhleq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -39)

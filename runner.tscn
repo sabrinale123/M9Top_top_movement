@@ -1,19 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw7oebjpdt5r8"]
+[gd_scene load_steps=8 format=3 uid="uid://bw7oebjpdt5r8"]
 
 [ext_resource type="Script" uid="uid://cf2tlt4hj8m8h" path="res://runner.gd" id="1_f7b3c"]
+[ext_resource type="Texture2D" uid="uid://dbcmxo51msi8m" path="res://assets/runner/shadow.png" id="2_5pwe8"]
 [ext_resource type="PackedScene" uid="uid://bm8s1oaoxngwq" path="res://assets/runner/runner_visual_red.tscn" id="2_f7b3c"]
+[ext_resource type="Shader" uid="uid://bwhexggpo0snf" path="res://assets/character_contour.gdshader" id="4_hfbw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b3ldj"]
-radius = 24.083189
+radius = 30.066593
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44hxy"]
+shader = ExtResource("4_hfbw2")
+shader_parameter/viewport_scale = Vector2(1, 1)
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/line_thickness = 4.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vk5uk"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Runner" type="CharacterBody2D"]
 script = ExtResource("1_f7b3c")
 
-[node name="RunnerVisualRed" parent="." instance=ExtResource("2_f7b3c")]
-unique_name_in_owner = true
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.15686275)
+position = Vector2(-0.9999981, -6.5)
+scale = Vector2(0.8958333, 0.734375)
+texture = ExtResource("2_5pwe8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 36)
+position = Vector2(-1, -39)
 shape = SubResource("CircleShape2D_b3ldj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="RunnerVisualRed" parent="SubViewport" instance=ExtResource("2_f7b3c")]
+unique_name_in_owner = true
+position = Vector2(125, 235)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_44hxy")
+position = Vector2(75, 15)
+scale = Vector2(0.5703073, 0.61880904)
+texture = SubResource("ViewportTexture_vk5uk")

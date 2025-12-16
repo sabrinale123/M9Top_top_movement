@@ -12,7 +12,7 @@ size = Vector2(128, 128)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptikn"]
 shader = ExtResource("1_hf0wn")
 shader_parameter/finish_line_text = ExtResource("3_3rxgf")
-shader_parameter/shape_ratio = Vector2(1, 1)
+shader_parameter/shape_ratio = Vector2(2, 1)
 
 [node name="FinishLine" type="Area2D"]
 script = ExtResource("1_xsfq1")

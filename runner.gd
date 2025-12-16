@@ -61,4 +61,4 @@ func walk_to(destination_global_position: Vector2) -> void:
 		_runner_visual.animation_name = RunnerVisual.Animations.IDLE
 		_dust.emitting = false
 		walked_to.emit()
-)
+	) 

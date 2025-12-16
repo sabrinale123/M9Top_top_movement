@@ -4,6 +4,8 @@ extends Node2D
 
 func _ready() -> void:
 	_finish_line.body_entered.connect(func (body: Node) -> void:
+	
+	
 		if body is not Runner:
 			return
 		var runner := body as Runner

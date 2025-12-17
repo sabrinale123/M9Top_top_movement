@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkblttkepswp6"]
+[gd_scene load_steps=10 format=3 uid="uid://dkblttkepswp6"]
 
 [ext_resource type="PackedScene" uid="uid://bw7oebjpdt5r8" path="res://runner.tscn" id="1_83gue"]
 [ext_resource type="Script" uid="uid://cp4p53x6plsif" path="res://games.gd" id="1_ki5e4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://xl56q8amb611" path="res://assets/finish_line/finish_line.tscn" id="5_evdsl"]
 [ext_resource type="Theme" uid="uid://cdcyvsn1fp8wa" path="res://assets/countdown/count_down_theme.tres" id="7_3ydif"]
 [ext_resource type="Script" uid="uid://57e8080cpukf" path="res://assets/countdown/count_down.gd" id="8_vjylx"]
+[ext_resource type="PackedScene" uid="uid://btdrqte4eafdf" path="res://pause_screen.tscn" id="9_vjylx"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -52,3 +53,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_vjylx")
 metadata/_custom_type_script = "uid://57e8080cpukf"
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("9_vjylx")]
+offset_left = -1036.0
+offset_top = -1178.0
+offset_right = -386.0
+offset_bottom = -922.0

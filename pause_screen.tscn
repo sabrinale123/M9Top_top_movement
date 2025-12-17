@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://btdrqte4eafdf"]
+
+[ext_resource type="FontFile" uid="uid://vxbfcnef0pvq" path="res://assets/fonts/rubik/Rubik-Bold.ttf" id="1_rk3l4"]
+[ext_resource type="Script" uid="uid://5uj1dsm5ches" path="res://pause_screen.gd" id="2_rbgr5"]
+[ext_resource type="Shader" uid="uid://dp1hn66gsihpv" path="res://assets/blur.gdshader" id="2_un6tb"]
+
+[sub_resource type="Theme" id="Theme_hkuif"]
+default_font = ExtResource("1_rk3l4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7axg"]
+shader = ExtResource("2_un6tb")
+shader_parameter/blur_amount = 3.1390001491025
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bd3e"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbgr5"]
+bg_color = Color(0.1254902, 0.19607843, 0.26666668, 0.7137255)
+
+[sub_resource type="Theme" id="Theme_dlpat"]
+default_font = ExtResource("1_rk3l4")
+default_font_size = 45
+Button/font_sizes/font_size = 60
+Button/styles/normal = SubResource("StyleBoxFlat_1bd3e")
+Label/font_sizes/font_size = 60
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_rbgr5")
+
+[node name="PauseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1821.0
+offset_top = -1892.0
+offset_right = -2217.0
+offset_bottom = -2086.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hkuif")
+script = ExtResource("2_rbgr5")
+
+[node name="BlurColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b7axg")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UIPanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44900003
+anchor_top = 0.52000004
+anchor_right = 0.44900003
+anchor_bottom = 0.52000004
+offset_left = -235.85608
+offset_top = -158.12006
+offset_right = 237.14392
+offset_bottom = 205.87994
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dlpat")
+text = "           PAUSE"
+
+[node name="CenterContainer" type="CenterContainer" parent="UIPanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIPanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="UIPanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
